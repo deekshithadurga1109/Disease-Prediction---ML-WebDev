@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/contact.css') }}">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="contact-header">
+        <div class="menu">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('analysis') }}">Analysis</a>
+            <a href="{{ url_for('about') }}">About</a>
+        </div>
+        <h1>Contact Us</h1>
+    </header>
+
+    <!-- Contact Information -->
+    <section class="contact-info">
+        <h2>About Us</h2>
+        <p>We are a passionate team of four students from MVGR College of Engineering, working on <b>Health Disease Prediction System </b> as our mini-project.
+        <br> Our goal is to create an innovative and user-friendly platform that helps in early disease detection using machine learning models.</p>
+        <p>Our project aims to assist individuals and healthcare professionals in making data-driven health decisions by analyzing symptoms and medical data.</p>
+        <p>We believe technology can revolutionize healthcare, and we are excited to contribute to this vision!</p>
+    </section>
+
+    <!-- Background Image Section -->
+    <div class="background-image"></div>
+
+    <!-- Team Members -->
+    <section class="team-section">
+        <h2>Meet Our Team</h2> <br>
+        <div class="team-members">
+            <div class="team-member">
+                <img src="{{ url_for('static', filename='images/woman-user-color-icon.png') }}" alt="Team Member 2">
+                <h3>K. Deekshitha</h3>
+                <p>22331A0471</p>
+            </div>
+            <div class="team-member">
+                <img src="{{ url_for('static', filename='images/man-user-color-icon.png') }}" alt="Team Member 1">
+                <h3>M. Devisri Prasad</h3>
+                <p>22331A04B1</p>
+            </div>
+            <div class="team-member">
+                <img src="{{ url_for('static', filename='images/woman-user-color-icon.png') }}" alt="Team Member 3">
+                <h3>P. Sri Kavya</h3>
+                <p>23335A0413</p>
+            </div>
+            <div class="team-member">
+                <img src="{{ url_for('static', filename='images/man-user-color-icon.png') }}" alt="Team Member 4">
+                <h3>K. Chaitanya</h3>
+                <p>22331A0476</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Form -->
+    <section class="feedback-section">
+        <h2>Send Us Your Feedback</h2>
+        <form class="feedback-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq">
+            <h3>🔹 How does the health prediction system work?</h3>
+            <p>Our AI-driven system analyzes medical data and provides predictions based on deep learning models.</p>
+        </div>
+        <div class="faq">
+            <h3>🔹 Is the prediction 100% accurate?</h3>
+            <p>No AI system is perfect. We provide high-accuracy predictions, but consultation with a doctor is recommended.</p>
+        </div>
+        <div class="faq">
+            <h3>🔹 How can I contribute to this project?</h3>
+            <p>Feel free to reach out to us via email or phone if you're interested in collaborating!</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Health Disease Prediction. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

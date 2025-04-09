@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Miniver&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto+Slab:wght@100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:"Roboto Slab", serif; 
+}
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+h2, h3 {
+    text-align: center;
+    color: #216683;
+}
+
+/* About Us Section */
+.about-us {
+    text-align: center;
+    padding: 50px;
+    background: url('/static/images/about-bg2.jpg') no-repeat center center/cover;
+    color: white;
+
+}
+
+.abt-menu a {
+    color:#ccc;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.abt-menu a:hover{
+    border-radius: 10px;
+    background-color:#fff;
+    padding: 0px 2px;
+    color: #216683;
+}
+.about-us-description h1{
+    font-size:50px ;
+}
+.about-us-description p {
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+/* About Project Section */
+.about-project {
+    padding: 50px;
+    text-align: center;
+    background-color: white;
+}
+
+.about-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.about-list {
+    list-style: none;
+    padding: 0;
+    width: 200px;
+}
+
+.about-list li {
+    padding: 15px;
+    cursor: pointer;
+    background-color: #216683;
+    color: white;
+    margin-bottom: 10px;
+    text-align: center;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.about-list li:hover {
+    background-color: #6a8fa5;
+}
+
+.about-content {
+
+    width: 60%; /* Increased width */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    color: #216683;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 16px;
+     min-height: 200px; 
+    max-height: 450px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-content img {
+    max-height: 150px;
+    /* margin-bottom: 10px; */
+}
+
+.about-content p {
+    margin-top: 20px;
+    color: #216683;
+    font-size: 16px;
+    text-align: center;
+}
+
+
+/* Team Section */
+.team-section {
+    text-align: center;
+    padding: 50px;
+    background: #eef7fb;
+}
+.team-section h3 {
+    color: #216683;
+}
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.team-member {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.team-member:hover {
+    transform: scale(1.05);
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* Footer Section */
+.footer-section {
+    background: #216683;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 30px;
+}
+.footer-section h2,h3 {
+    color: #fff;
+}
+
+.footer-section form {
+    margin: 20px auto;
+    width: 50%;
+}
+
+.footer-section textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.footer-section button {
+    background: white;
+    color: #216683;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.footer-section button:hover {
+    background: #6a8fa5;
+    color: white;
+}

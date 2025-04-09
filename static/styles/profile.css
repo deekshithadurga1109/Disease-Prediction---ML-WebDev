@@ -1,0 +1,161 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 30px;
+    font-size: 1rem;
+}
+
+/* Header Styling */
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #216683; /* Primary color */
+    animation: fadeIn 1s ease-in-out;
+    letter-spacing: 1px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow around the table */
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Table Header Styling */
+th {
+    background-color: #216683; /* Primary color */
+    color: white;
+    padding: 14px 20px;
+    text-align: left;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+th:hover {
+    background-color: #1a5460; /* Darker shade for hover */
+    transform: translateY(-2px); /* Slight hover lift */
+    transition: all 0.3s ease;
+}
+
+/* Table Data Styling */
+td {
+    padding: 12px 20px;
+    font-size: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+td:hover {
+    background-color: #c9e3e9; /* Light hover effect */
+    transform: translateX(5px); /* Slide effect */
+}
+
+/* Even Row Styling */
+tr:nth-child(even) {
+    background-color: #e1f0f5; /* Light secondary color */
+}
+
+/* Table Row Hover Styling */
+tr:hover {
+    background-color: #d4eaf1; /* Slightly darker hover effect */
+    transform: scale(1.02); /* Zoom on hover */
+    transition: all 0.3s ease;
+}
+
+/* Message when no history */
+p {
+    font-size: 1.2rem;
+    color: #6a8fa5; /* Secondary color */
+    text-align: center;
+    font-style: italic;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Back Link Styling */
+.back-link {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.back-link a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #216683; /* Primary color */
+    font-weight: bold;
+    padding: 10px 15px;
+    border: 2px solid #216683; /* Border around the link */
+    border-radius: 5px; /* Rounded corners */
+    transition: all 0.3s ease;
+}
+
+.back-link a:hover {
+    color: white;
+    background-color: #216683;
+    border-color: #1a5460;
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Hover Effects for Table Cells */
+td:hover {
+    background-color: #c9e3e9; /* Hover effect for table data */
+    transform: translateX(5px); /* Slide effect */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    table {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    .back-link a {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+}

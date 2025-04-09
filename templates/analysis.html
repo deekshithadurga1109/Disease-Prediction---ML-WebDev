@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthDiagnosis: Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/analysis.css') }}">
+</head>
+<body>
+    <section class="analysis-intro">
+        <div class="menu">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('departments') }}">Departments</a>            
+            <a href="{{ url_for('analysis') }}">Analysis</a>            
+        </div>
+        <br>
+        <h1>DISEASE ANALYSIS</h1>
+        <p>Select a disease to view its prediction analysis.</p>
+    </section>
+
+    <!-- Analysis List -->
+    <section class="analysis-list">
+        <div class="analysis-item">
+            <img src="{{ url_for('static', filename='images/diabetes-disease.jpg') }}" alt="Diabetes Analysis">
+            <h3>PIMA Diabetes Analysis</h3>
+            <button onclick="goToAnalysis('diabetes')">View Analysis</button>
+        </div>
+        
+        <div class="analysis-item">
+            <img src="{{ url_for('static', filename='images/heart_disease.jpg') }}" alt="Heart Disease Analysis">
+            <h3>Heart Disease Analysis</h3>
+            <button onclick="goToAnalysis('heart')">View Analysis</button>
+        </div>
+        
+        <div class="analysis-item">
+            <img src="{{ url_for('static', filename='images/breast-cancer.jpg') }}" alt="Breast Cancer Analysis">
+            <h3>Breast Cancer Analysis</h3>
+            <button onclick="goToAnalysis('breast_cancer')">View Analysis</button>
+        </div>
+        
+        <div class="analysis-item">
+            <img src="{{ url_for('static', filename='images/liver_disease.jpg') }}" alt="Liver Disease Analysis">
+            <h3>Liver Disease Analysis</h3>
+            <button onclick="goToAnalysis('liver')">View Analysis</button>
+        </div>
+        
+    </section>
+
+    <script>
+        function goToAnalysis(disease) {
+            window.location.href = `/analysis/${disease}`;
+        }
+    </script>
+</body>
+</html>

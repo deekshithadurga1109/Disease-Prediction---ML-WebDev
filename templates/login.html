@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Disease Prediction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/login.css') }}">
+</head>
+<body>
+  <div class="wrapper">
+    <form id="loginForm" action="{{ url_for('login') }}" method="post">
+      <h2>Login</h2>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <script>
+            alert("{{ messages[0] }}");
+          </script>
+        {% endif %}
+      {% endwith %}
+      <div class="input-field">
+        <input type="email" name="email" id="email" required>
+        <label>Enter your email</label>
+      </div>
+      <div class="input-field">
+        <input type="password" name="password" id="password" required>
+        <label>Enter your password</label>
+      </div>
+      <div class="forget">
+        <label for="remember">
+          <input type="checkbox" id="remember">
+          <p>Remember me</p>
+        </label>
+        <a href="{{ url_for('forgot_password') }}">Forgot password?</a>
+      </div>
+      <button type="submit">Log In</button>
+      <div class="register">
+        <p>Don't have an account? <a href="{{ url_for('register') }}">Register</a></p>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (!email || !password) {
+        e.preventDefault(); // Stop form submission
+        alert("Please fill in both email and password!");
+      }
+    });
+  </script>
+</body>
+</html>

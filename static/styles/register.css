@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Miniver&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto+Slab:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto Slab", serif;
+}
+
+/* General Styles */
+body {
+    background: url('/static/images/reg6.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.wrapper {
+    background: #acc2cc;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.wrapper:hover {
+    transform: scale(1.05);
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #216683;
+    transition: color 0.3s ease;
+}
+
+.input-field {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #6a8fa5;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field input:focus {
+    border-color: #216683;
+    box-shadow: 0 0 5px rgba(33, 102, 131, 0.5);
+}
+
+.input-field label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #777;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.input-field input:focus + label,
+.input-field input:valid + label {
+    top: 5px;
+    font-size: 12px;
+    color: #216683;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #216683;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: #6a8fa5;
+    transform: scale(1.05);
+}
+
+.register p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.register a {
+    color: #216683;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.register a:hover {
+    text-decoration: underline;
+    color: #6a8fa5;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

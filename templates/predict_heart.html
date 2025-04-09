@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/heart-disease.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <section class="heart-disease-intro">
+        <div class="menu">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('departments') }}">Departments</a>
+        </div>
+        <h1>Heart Disease Prediction</h1>
+        <p>Enter the required details below to predict heart disease risk.</p>
+    </section>
+
+    <section class="input-form">
+        <h2>Enter Your Details</h2>
+        <form id="heart-form">
+            <label>Age:</label>
+            <input type="number" id="age" required>
+
+            <label>Sex (0 = Female, 1 = Male):</label>
+            <input type="number" id="sex" min="0" max="1" required>
+
+            <label>Chest Pain Type (0-3):</label>
+            <input type="number" id="cp" min="0" max="3" required>
+
+            <label>Resting Blood Pressure:</label>
+            <input type="number" id="trestbps" required>
+
+            <label>Cholesterol Level:</label>
+            <input type="number" id="chol" required>
+
+            <label>Fasting Blood Sugar (>120 mg/dl) (0 = No, 1 = Yes):</label>
+            <input type="number" id="fbs" min="0" max="1" required>
+
+            <label>Resting ECG Results (0-2):</label>
+            <input type="number" id="restecg" min="0" max="2" required>
+
+            <label>Max Heart Rate Achieved:</label>
+            <input type="number" id="thalach" required>
+
+            <label>Exercise Induced Angina (0 = No, 1 = Yes):</label>
+            <input type="number" id="exang" min="0" max="1" required>
+
+            <label>ST Depression Induced by Exercise:</label>
+            <input type="number" id="oldpeak" step="0.1" required>
+
+            <label>Slope of Peak Exercise ST Segment (0-2):</label>
+            <input type="number" id="slope" min="0" max="2" required>
+
+            <label>Number of Major Vessels (0-4):</label>
+            <input type="number" id="ca" min="0" max="4" required>
+
+            <label>Thalassemia (0-3):</label>
+            <input type="number" id="thal" min="0" max="3" required>
+
+            <button type="submit">Predict</button>
+        </form>
+    </section>
+
+    <section class="prediction-result">
+        <h2>Prediction Result</h2>
+        <p id="result-message">Awaiting Prediction...</p>
+        <p id="accuracy">Accuracy: --%</p>
+    </section>
+
+    <script>
+        $(document).ready(function(){
+            $("#heart-form").on("submit", function(event){
+                event.preventDefault();
+
+                var formData = {
+                    age: $("#age").val(),
+                    sex: $("#sex").val(),
+                    cp: $("#cp").val(),
+                    trestbps: $("#trestbps").val(),
+                    chol: $("#chol").val(),
+                    fbs: $("#fbs").val(),
+                    restecg: $("#restecg").val(),
+                    thalach: $("#thalach").val(),
+                    exang: $("#exang").val(),
+                    oldpeak: $("#oldpeak").val(),
+                    slope: $("#slope").val(),
+                    ca: $("#ca").val(),
+                    thal: $("#thal").val(),
+                    disease: "heart"
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: "/predict",
+                    data: JSON.stringify(formData),
+                    contentType: "application/json",
+                    success: function(response){
+                        $("#result-message").html(`<strong>${response.prediction}</strong>`).css("color", response.prediction.includes("High Risk") ? "red" : "green");
+                        $("#accuracy").html(`Accuracy: ${response.accuracy}%`);
+                    },
+                    error: function(){
+                        $("#result-message").html("Error occurred while predicting.");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

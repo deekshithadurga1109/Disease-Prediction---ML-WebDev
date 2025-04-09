@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthDiagnosis: Departments</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/departments.css') }}">
+</head>
+<body>
+    <section class="departments-intro">
+        <div class="menu">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('departments') }}">Departments</a>
+        </div>
+        <br>
+        <h1>DEPARTMENTS</h1>
+        <p>Explore the various medical departments that our system supports, helping to diagnose and analyze various health conditions.</p>
+    </section>
+
+     <!-- Departments List Section -->
+     <section class="departments-list">
+        <div class="department">
+            <img src="{{ url_for('static', filename='images/diabetes-disease.jpg') }}" alt="Diabetes Prediction">
+            <h3>PIMA Diabetes Prediction</h3>
+            <a href="{{ url_for('predict_diabetes') }}">
+                <button>Predict</button>
+            </a>
+        </div>        
+        <div class="department">
+            <img src="{{ url_for('static', filename='images/heart_disease.jpg') }}" alt="Heart Disease Prediction">
+            <h3>Heart Disease Prediction</h3>
+            <a href="{{ url_for('predict_heart') }}">
+                <button>Predict</button>
+            </a>
+        </div>
+        
+        <div class="department">
+            <img src="{{ url_for('static', filename='images/breast-cancer.jpg') }}" alt="Breast Cancer Prediction">
+            <h3>Breast Cancer Prediction</h3>
+            <a href="{{ url_for('predict_breast_cancer') }}">
+                <button>Predict</button>
+            </a>
+        </div>
+        
+        <div class="department">
+            <img src="{{ url_for('static', filename='images/liver_disease.jpg') }}" alt="Liver Disease Prediction">
+            <h3>Liver Disease Prediction</h3>
+            <a href="{{ url_for('predict_liver') }}">
+                <button>Predict</button>
+            </a>
+        </div>
+        
+    </section>
+
+    <!-- Footer Section -->
+    <section class="footer-section">
+        <h2>Contact Us</h2>
+        <p>Email: Team Lead | Mail: deekshithadurga1109@gmail.com</p> <br>
+        <h3>User Feedback</h3>
+        <form>
+            <textarea placeholder="Write your feedback here..."></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <h3>Testimonials</h3>
+        <div class="testimonials">
+            <p>"This platform has greatly improved my healthcare experience! Highly recommended." - User A</p>
+            <p>"Accurate predictions and an easy-to-use interface!" - User B</p>
+        </div>
+    </section>
+
+    <script>
+        function predict(disease) {
+            window.location.href = "/" + disease + ".html";
+        }
+    </script>
+</body>
+</html>

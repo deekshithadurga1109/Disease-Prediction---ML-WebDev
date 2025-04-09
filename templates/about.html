@@ -1,0 +1,93 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthDiagnosis:About</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/about.css') }}">
+</head>
+ <body>
+    <section class="about-us">
+       <div class="about-us-description">
+        <div class="abt-menu">
+            <a href="{{ url_for('home') }}">HOME</a>
+            <a href="{{ url_for('about') }}">ABOUT</a>
+            <a href="{{ url_for('profile') }}">PROFILE</a>            
+           </div>
+           <br>
+            <h1>ABOUT US</h1>
+            <p>The application furnishes sophisticated madicated machine learning algorithm to enable <br> Prediction of whether the person is infected or not with Diabetes, Breast Cancer, <br> Liver Disease or Heart Disease</p>
+        </div>
+        </section>
+    <section class="about-project">
+        <h2>About the Project</h2>
+        <div class="about-container">
+            <ul class="about-list">
+                <li onclick="showContent('scope')">Scope</li>
+                <li onclick="showContent('purpose')">Purpose</li>
+                <li onclick="showContent('aim')">Aim</li>
+                <li onclick="showContent('users')">Intended Users</li>
+            </ul>
+            <div class="about-content" id="about-content">
+                <img src="{{ url_for('static', filename='images/pro1.jpg') }}" alt="image">
+                <p>Select an item to see details.</p>
+            </div>
+        </div>
+    </section>
+    <section class="team-section">
+        <h2>Meet Our Team</h2>
+        <div class="team-container">
+            <div class="team-member">
+                <img src="{{ url_for('static', filename='images/woman-user-color-icon.png') }}" alt="Team Member 1">
+                <h3>K. Deekshitha</h3>
+                <p>22331A0471</p>
+            </div>
+            <div class="team-member">
+                <img src="{{ url_for('static', filename='images/man-user-color-icon.png') }}" alt="Team Member 2">
+                <h3>M. Devisri Prasad</h3>
+                <p>22331A04B1</p>
+            </div>
+            <div class="team-member">
+                <img src="{{ url_for('static', filename='images/woman-user-color-icon.png') }}" alt="Team Member 3">
+                <h3>P. Sri Kavya</h3>
+                <p>23335A0413</p>
+            </div>
+            <div class="team-member">
+                <img src="{{ url_for('static', filename='images/man-user-color-icon.png') }}" alt="Team Member 4">
+                <h3>K. Chaitanya</h3>
+                <p>22331A0476</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer-section">
+        <h2>Contact Us</h2> <br>
+        <p>Team Lead : Email: deekshithadurga1109@gmail.com </p>
+        <br>
+        <h3>User Feedback</h3>
+        <form>
+            <textarea placeholder="Write your feedback here..."></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <h3>Testimonials</h3>
+        <div class="testimonials">
+            <p>"This platform has greatly improved my healthcare experience! Highly recommended." - User A</p>
+            <p>"Accurate predictions and an easy-to-use interface!" - User B</p>
+        </div>
+    </section>
+    
+    
+    <script>
+        function showContent(type) {
+            const content = {
+                scope: "The scope of this project is to develop a machine learning-based health disease prediction system for detecting heart disease, liver disease, breast cancer, and diabetes. It aims to analyze patient data and provide accurate predictions, aiding in early diagnosis and risk assessment. By integrating predictive analytics, the system enhances healthcare efficiency, enabling doctors and individuals to take proactive measures. This project can be expanded to include more diseases, improve prediction accuracy, and integrate with hospital management systems for real-time health monitoring and decision-making",
+                purpose: "The purpose of this project is to create an intelligent health disease prediction system that assists in the early detection of critical illnesses such as heart disease, liver disease, breast cancer, and diabetes. By leveraging machine learning algorithms, the system analyzes patient data and predicts the likelihood of disease occurrence, enabling timely medical intervention. This project aims to enhance healthcare accessibility, reduce diagnostic delays, and support both medical professionals and individuals in making informed health decisions. Ultimately, it strives to improve patient outcomes, promote preventive care, and contribute to a more efficient and technology-driven healthcare system.",
+                aim: "The primary aim of this project is to develop an intelligent and efficient disease prediction system that can help in the early detection of heart disease, liver disease, breast cancer, and diabetes. By leveraging machine learning algorithms and data analysis, the system aims to provide accurate predictions, assist medical professionals in diagnosis, and raise awareness among individuals for preventive healthcare. The project focuses on improving accessibility, accuracy, and usability to support better healthcare decision-making and reduce the risk of severe health complications.",
+                users: "Patients, healthcare professionals, and researchers seeking reliable diagnostic assistance."
+            };
+            document.getElementById('about-content').innerHTML = `<p>${content[type]}</p>`;
+        }
+    </script>
+
+ </body>
+ </html>

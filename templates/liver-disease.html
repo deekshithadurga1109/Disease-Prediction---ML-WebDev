@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liver Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/liver-disease.css') }}">
+</head>
+<body>
+    <!-- Navigation & Title Section -->
+    <section class="liver-intro">
+        <div class="menu">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('departments') }}">Departments</a>
+        </div>
+        <h1>Liver Disease Prediction</h1>
+        <p>Enter the required medical details below to predict liver disease.</p>
+    </section>
+
+    <!-- Input Form Section -->
+    <section class="input-form">
+        <h2>Enter Patient Details</h2>
+        <form id="liver-form">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="gender">Gender (1=Male, 0=Female):</label>
+            <input type="number" id="gender" name="gender" min="0" max="1" required>
+
+            <label for="total_bilirubin">Total Bilirubin:</label>
+            <input type="number" id="total_bilirubin" name="total_bilirubin" step="0.01" required>
+
+            <label for="direct_bilirubin">Direct Bilirubin:</label>
+            <input type="number" id="direct_bilirubin" name="direct_bilirubin" step="0.01" required>
+
+            <label for="alkphos">Alkaline Phosphatase:</label>
+            <input type="number" id="alkphos" name="alkphos" required>
+
+            <label for="sgpt">Alamine Aminotransferase:</label>
+            <input type="number" id="sgpt" name="sgpt" required>
+
+            <label for="sgot">Aspartate Aminotransferase:</label>
+            <input type="number" id="sgot" name="sgot" required>
+
+            <label for="total_protein">Total Proteins:</label>
+            <input type="number" id="total_protein" name="total_protein" step="0.01" required>
+
+            <label for="albumin">Albumin:</label>
+            <input type="number" id="albumin" name="albumin" step="0.01" required>
+
+            <label for="ag_ratio">Albumin and Globulin Ratio:</label>
+            <input type="number" id="ag_ratio" name="ag_ratio" step="0.01" required>
+
+            <button type="button" onclick="predictLiverDisease()">Predict</button>
+        </form>
+    </section>
+
+    <!-- Prediction Result Section -->
+    <section class="prediction-result">
+        <h2>Prediction Result</h2>
+        <p id="result-message">Awaiting Prediction...</p>
+        <p id="accuracy">Accuracy: --%</p>
+    </section>
+
+  
+    <!-- JavaScript for Prediction Logic 
+    <script>
+        function predictLiverDisease() {
+            // Simulating a prediction process
+            const age = document.getElementById("age").value;
+            const gender = document.getElementById("gender").value;
+            const total_bilirubin = document.getElementById("total_bilirubin").value;
+            const direct_bilirubin = document.getElementById("direct_bilirubin").value;
+            const alkphos = document.getElementById("alkphos").value;
+            const sgpt = document.getElementById("sgpt").value;
+            const sgot = document.getElementById("sgot").value;
+            const total_protein = document.getElementById("total_protein").value;
+            const albumin = document.getElementById("albumin").value;
+            const ag_ratio = document.getElementById("ag_ratio").value;
+
+            if (!age || !gender || !total_bilirubin || !direct_bilirubin || !alkphos || !sgpt || !sgot || !total_protein || !albumin || !ag_ratio) {
+                alert("Please fill in all fields!");
+                return;
+            }
+
+            // Simulated response (Replace this logic with ML model integration)
+            let isPositive = Math.random() < 0.5; // 50% chance
+            let accuracy = (Math.random() * (95 - 85) + 85).toFixed(2); // Random accuracy between 85-95%
+
+            let predictionMessage = isPositive 
+                ? "Liver Disease Detected! Consult a Doctor." 
+                : "No Liver Disease Detected. Stay Healthy!";
+            
+            // Update result section
+            const resultDisplay = document.getElementById("result-message");
+            const accuracyDisplay = document.getElementById("accuracy");
+
+            resultDisplay.innerHTML = predictionMessage;
+            resultDisplay.style.color = isPositive ? "red" : "green";
+            accuracyDisplay.innerHTML = `Accuracy: ${accuracy}%`;
+        }
+    </script>
+-->
+</body>
+</html>

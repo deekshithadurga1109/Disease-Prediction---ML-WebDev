@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/breast-cancer.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Navigation & Title Section -->
+    <section class="cancer-intro">
+        <div class="menu">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('departments') }}">Departments</a>
+        </div>
+        <h1>Breast Cancer Prediction</h1>
+        <p>Enter the required details below to predict the risk of breast cancer.</p>
+    </section>
+
+    <!-- Input Form Section -->
+    <section class="input-form">
+        <h2>Enter Patient Details</h2>
+        <form id="cancer-form">
+            <label>Points Mean:</label>
+            <input type="number" id="points_mean" step="0.01" required>
+
+            <label>Symmetry Mean:</label>
+            <input type="number" id="symmetry_mean" step="0.01" required>
+
+            <label>Fractal Dimension Mean:</label>
+            <input type="number" id="fractal_dimension_mean" step="0.01" required>
+
+            <label>Radius SE:</label>
+            <input type="number" id="radius_se" step="0.01" required>
+
+            <label>Texture SE:</label>
+            <input type="number" id="texture_se" step="0.01" required>
+
+            <label>Perimeter SE:</label>
+            <input type="number" id="perimeter_se" step="0.01" required>
+
+            <label>Area SE:</label>
+            <input type="number" id="area_se" step="0.01" required>
+
+            <label>Smoothness SE:</label>
+            <input type="number" id="smoothness_se" step="0.01" required>
+
+            <label>Compactness SE:</label>
+            <input type="number" id="compactness_se" step="0.01" required>
+
+            <label>Concavity SE:</label>
+            <input type="number" id="concavity_se" step="0.01" required>
+
+            <label>Concave:</label>
+            <input type="number" id="concave" step="0.01" required>
+
+            <button type="submit">Predict</button>
+        </form>
+    </section>
+
+    <!-- Prediction Result Section -->
+    <section class="prediction-result">
+        <h2>Prediction Result</h2>
+        <p id="result-message">Awaiting Prediction...</p>
+        <p id="accuracy">Accuracy: --%</p>
+    </section>
+
+    <!-- JavaScript for Prediction Logic -->
+    <script>
+        $(document).ready(function(){
+            $("#cancer-form").on("submit", function(event){
+                event.preventDefault();
+        
+                // Collect input values using dataset feature names
+                let formData = {
+                    disease: "cancer",
+                    "Points Mean": parseFloat($("#points_mean").val()),
+                    "Symmetry Mean": parseFloat($("#symmetry_mean").val()),
+                    "Fractal Dimension Mean": parseFloat($("#fractal_dimension_mean").val()),
+                    "Radius SE": parseFloat($("#radius_se").val()),
+                    "Texture SE": parseFloat($("#texture_se").val()),
+                    "Perimeter SE": parseFloat($("#perimeter_se").val()),
+                    "Area SE": parseFloat($("#area_se").val()),
+                    "Smoothness SE": parseFloat($("#smoothness_se").val()),
+                    "Compactness SE": parseFloat($("#compactness_se").val()),
+                    "Concavity SE": parseFloat($("#concavity_se").val()),
+                    "Concave": parseFloat($("#concave").val())
+                };
+        
+                $.ajax({
+                    type: "POST",
+                    url: "/predict",
+                    data: JSON.stringify(formData),
+                    contentType: "application/json",
+                    success: function(response){
+                        if (response.prediction) {
+                            $("#result-message").html(
+                                response.prediction.includes("High Risk") ? 
+                                "<strong style='color:red;'>⚠️ High Risk of Cancer Detected! Consult a Doctor.</strong>" : 
+                                "<strong style='color:green;'>✅ Low Risk of Cancer. Stay Healthy!</strong>"
+                            );
+                            $("#accuracy").html(`Model Accuracy: ${response.accuracy || '--'}%`);
+                        } else {
+                            $("#result-message").html("<strong style='color:red;'>❌ Error: Invalid response from server.</strong>");
+                        }
+                    },
+                    error: function(){
+                        $("#result-message").html("<strong style='color:red;'>❌ Error occurred while predicting.</strong>");
+                    }
+                });
+            });
+        });
+        
+    </script>
+
+</body>
+</html>

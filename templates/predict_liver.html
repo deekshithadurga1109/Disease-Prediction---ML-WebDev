@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liver Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/liver-disease.css') }}">
+</head>
+<body>
+    <!-- Navigation & Title Section -->
+    <section class="liver-intro">
+        <div class="menu">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('departments') }}">Departments</a>
+        </div>
+        <h1>Liver Disease Prediction</h1>
+        <p>Enter the required medical details below to predict liver disease.</p>
+    </section>
+
+    <!-- Input Form Section -->
+    <section class="input-form">
+        <h2>Enter Patient Details</h2>
+        <form id="liver-form">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="gender">Gender (1=Male, 0=Female):</label>
+            <input type="number" id="gender" name="gender" min="0" max="1" required>
+
+            <label for="total_bilirubin">Total Bilirubin:</label>
+            <input type="number" id="total_bilirubin" name="total_bilirubin" step="0.01" required>
+
+            <label for="direct_bilirubin">Direct Bilirubin:</label>
+            <input type="number" id="direct_bilirubin" name="direct_bilirubin" step="0.01" required>
+
+            <label for="alkphos">Alkaline Phosphatase:</label>
+            <input type="number" id="alkphos" name="alkphos" required>
+
+            <label for="sgpt">Alamine Aminotransferase:</label>
+            <input type="number" id="sgpt" name="sgpt" required>
+
+            <label for="sgot">Aspartate Aminotransferase:</label>
+            <input type="number" id="sgot" name="sgot" required>
+
+            <label for="total_protein">Total Proteins:</label>
+            <input type="number" id="total_protein" name="total_protein" step="0.01" required>
+
+            <label for="albumin">Albumin:</label>
+            <input type="number" id="albumin" name="albumin" step="0.01" required>
+
+            <label for="ag_ratio">Albumin and Globulin Ratio:</label>
+            <input type="number" id="ag_ratio" name="ag_ratio" step="0.01" required>
+
+            <button type="button" onclick="predictLiverDisease()">Predict</button>
+        </form>
+    </section>
+
+    <!-- Prediction Result Section -->
+    <section class="prediction-result">
+        <h2>Prediction Result</h2>
+        <p id="result-message">Awaiting Prediction...</p>
+        <p id="accuracy">Accuracy: --%</p>
+    </section>
+
+    <!-- JavaScript for Prediction Logic -->
+    <script>
+        function predictLiverDisease() {
+            const formData = {
+                disease: "liver",
+                age: parseFloat(document.getElementById("age").value),
+                gender: parseFloat(document.getElementById("gender").value),
+                total_bilirubin: parseFloat(document.getElementById("total_bilirubin").value),
+                direct_bilirubin: parseFloat(document.getElementById("direct_bilirubin").value),
+                alk_phosphate: parseFloat(document.getElementById("alkphos").value),
+                sgpt: parseFloat(document.getElementById("sgpt").value),
+                sgot: parseFloat(document.getElementById("sgot").value),
+                total_protein: parseFloat(document.getElementById("total_protein").value),
+                albumin: parseFloat(document.getElementById("albumin").value),
+                ag_ratio: parseFloat(document.getElementById("ag_ratio").value)
+            };
+
+            fetch("/predict", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("result-message").innerHTML = data.prediction;
+                document.getElementById("result-message").style.color = data.prediction.includes("High Risk") ? "red" : "green";
+                document.getElementById("accuracy").innerHTML = `Accuracy: ${data.accuracy}%`;
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("Something went wrong. Please try again.");
+            });
+        }
+    </script>
+</body>
+</html>

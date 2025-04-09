@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <script src="https://kit.fontawesome.com/YOUR-KIT-CODE.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">  <img class="logo-img" src="/static/images/cardiogram.png" alt="logo"> HEALTH DIAGNOSIS</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('departments') }}">Departments</a></li>
+                <li><a href="{{ url_for('analysis') }}">Analysis</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>THE MOST VALUABLE</h1>
+            <h1> THING IS YOUR HEALTH</h1>
+            <h2>Health is the crown on the well person's head that only the ill person can see</h2>
+            <p>AI-powered heart disease risk assessment to help you take proactive steps toward a healthier life.</p>
+        </div>
+    </section>
+
+    <section id="diseases" class="disease-section">
+        <div class="disease-container">
+            <ul class="disease-list">
+                <li onclick="showDiseaseInfo('heart')">Heart Disease</li>
+                <li onclick="showDiseaseInfo('liver')">Liver Disease</li>
+                <li onclick="showDiseaseInfo('diabetes')">Diabetes</li>
+                <li onclick="showDiseaseInfo('cancer')">Breast Cancer</li>
+            </ul>
+        </div>
+        <div class="disease-info-box" id="disease-info">
+
+            <img id="disease-img" src="{{ url_for('static', filename='images/heart-disease.jpg') }}" alt="Disease Image">
+            <h2 id="disease-heading">Types Of DISEASES</h2>
+            <p id="disease-text">Click on a disease to learn more.</p>
+        </div>
+    </section>
+
+    <section id="symptoms" class="symptoms-section">
+        <ul class="symptoms-list">
+            <li onclick="showSymptomsInfo('heart')">Heart Disease Symptoms</li>
+            <li onclick="showSymptomsInfo('liver')">Liver Disease Symptoms</li>
+            <li onclick="showSymptomsInfo('diabetes')">Diabetes Symptoms</li>
+            <li onclick="showSymptomsInfo('breastCancer')">Breast Cancer Symptoms</li>
+        </ul>
+        <div class="symptoms-info-box" id="symptoms-info">
+            <h2 id="symptoms-heading">Disease - information</h2>
+            <img id="symptoms-img" src="{{ url_for('static', filename='images/stethoscope.png') }}" alt="Symptoms Image">
+            <p id="symptoms-text">Select a disease to see its symptoms.</p>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>HealthDiagnosis</h3>
+                <p>Your trusted platform for accurate health analysis and diagnosis.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Site Links</h3>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('departments') }}">Departments</a></li>
+                    <li><a href="{{ url_for('analysis') }}">Analysis</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Have a Question?</h3>
+                <div class="social-icons">
+                    <a href="https://github.com/deekshithadurga1109" class="github" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://instagram.com" class="instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/deekshitha-kammula/" class="linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p> Copyright &copy;2025 HealthDiagnosis. All Rights Reserved | HealthDiagnosis.&hearts;</p>
+        </div>
+    </footer>
+    <script>
+        function showDiseaseInfo(disease) {
+            const diseaseInfo = {
+                heart: {
+                    heading: "Heart Disease",
+                    text: "Heart disease includes conditions affecting heart function, such as coronary artery disease and heart failure. Common risk factors include high blood pressure, diabetes, smoking, obesity, and an unhealthy lifestyle. Early detection, lifestyle changes, and medical intervention can help manage and prevent heart disease effectively.",
+                    img: "{{ url_for('static', filename='images/heart-diseaseman.jpg') }}"
+                },
+                liver: {
+                    heading: "Liver Disease",
+                    text: "Liver disease covers various conditions affecting liver health, including hepatitis and cirrhosis. It is often caused by infections, excessive alcohol consumption, obesity, or genetic factors.",
+                    img: "{{ url_for('static', filename='images/liver.png') }}"
+                },
+                diabetes: {
+                    heading: "Diabetes",
+                    text: "Diabetes is a chronic condition that affects how the body processes blood sugar. Uncontrolled diabetes can lead to serious complications like heart disease, kidney failure, and nerve damage.",
+                    img: "{{ url_for('static', filename='images/diabetes.png') }}"
+                },
+                cancer: {
+                    heading: "Breast Cancer",
+                    text: "Breast cancer is a disease where cells in the breast grow uncontrollably. Early detection through regular screenings and self-examinations improves treatment success.",
+                    img: "{{ url_for('static', filename='images/breast-cancer.png') }}"
+                }
+            };
+            
+            document.getElementById("disease-text").textContent = diseaseInfo[disease].text;
+            document.getElementById("disease-img").src = diseaseInfo[disease].img;
+            document.getElementById("disease-heading").textContent = diseaseInfo[disease].heading;
+            document.getElementById("disease-img").style.display = "block";
+        }
+    </script>
+    <script>
+        function showSymptomsInfo(disease) {
+            const symptomsInfo = {
+                heart: {
+                    heading: "Heart Disease Symptoms",
+                    text: "Heart disease symptoms include chest pain, shortness of breath, fatigue, dizziness, and irregular heartbeat.",
+                    img: "{{ url_for('static', filename='images/heart-disease.png') }}"
+                },
+                liver: {
+                    heading: "Liver Disease Symptoms",
+                    text: "Liver disease symptoms include jaundice, abdominal pain, dark urine, nausea, and fatigue.",
+                    img: "{{ url_for('static', filename='images/liver2.png') }}"
+                },
+                diabetes: {
+                    heading: "Diabetes Symptoms",
+                    text: "Diabetes symptoms include frequent urination, excessive thirst, unexplained weight loss, and blurred vision.",
+                    img: "{{ url_for('static', filename='images/diabetes2.png') }}"
+                },
+                breastCancer: {
+                    heading: "Breast Cancer Symptoms",
+                    text: "Breast cancer symptoms include lumps in the breast, skin dimpling, nipple discharge, and changes in breast shape.",
+                    img: "{{ url_for('static', filename='images/breast_cancer2.png') }}"
+                }
+            };
+    
+            document.getElementById("symptoms-heading").textContent = symptomsInfo[disease].heading;
+            document.getElementById("symptoms-img").src = symptomsInfo[disease].img;
+            document.getElementById("symptoms-text").textContent = symptomsInfo[disease].text;
+        }
+    </script>
+</body>
+</html>

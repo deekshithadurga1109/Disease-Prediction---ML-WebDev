@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Miniver&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto+Slab:wght@100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:"Roboto Slab", serif; 
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #216683; /* Deep blue-green background */
+    color: white;
+    text-align: center;
+}
+
+/* Navigation Menu */
+.menu {
+    background-color: #164d5f; /* Dark teal */
+    padding: 15px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+/* Page Header */
+.analysis-intro {
+    background: url('/images/diabetes-analysis-bg.jpg') no-repeat center center/cover;
+    padding: 50px 0;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.analysis-intro h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.analysis-intro p {
+    font-size: 18px;
+}
+
+/* Summary Section */
+.summary {
+    background-color: white;
+    color: #164d5f; /* Dark teal text */
+    padding: 20px;
+    margin: 30px auto;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid #164d5f;
+}
+
+.summary h2 {
+    color: #216683; /* Blue-green heading */
+}
+
+/* Chart Section */
+.charts {
+    padding: 20px;
+    background-color: white;
+    width: 80%;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid #164d5f;
+}
+
+.charts h2 {
+    color: #216683;
+}
+
+.charts canvas {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Recent Predictions Table */
+.recent-predictions {
+    padding: 20px;
+    background-color: white;
+    width: 80%;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid #164d5f;
+}
+
+.recent-predictions h2 {
+    color: #216683;
+}
+
+.recent-predictions table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.recent-predictions th, .recent-predictions td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.recent-predictions th {
+    background-color: #164d5f; /* Dark teal header */
+    color: white;
+}
+
+.recent-predictions tr:nth-child(even) {
+    background-color: #a8cbd1; /* Soft blue-green row color */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .summary, .charts, .recent-predictions {
+        width: 95%;
+    }
+}

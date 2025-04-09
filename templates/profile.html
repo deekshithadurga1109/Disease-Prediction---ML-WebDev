@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Profile - Prediction History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/profile.css') }}">
+
+</head>
+<body>
+
+    <h2>🧾 Your Prediction History</h2>
+
+    {% if history %}
+        <table>
+            <thead>
+                <tr>
+                    <th>🕒 Date & Time</th>
+                    <th>🧬 Disease</th>
+                    <th>📊 Prediction Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in history %}
+                    <tr>
+                        <td>{{ row[3] }}</td>  <!-- created_at -->
+                        <td>{{ row[0]|capitalize }}</td>  <!-- disease -->
+                        <td>{{ row[1] }} ({{ row[2] }}%)</td>  <!-- result + confidence -->
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p style="text-align:center; color: #888;">No predictions found yet.</p>
+    {% endif %}
+
+    <div class="back-link">
+        <a href="{{ url_for('home') }}">← Back to Home</a>
+    </div>
+
+</body>
+</html>

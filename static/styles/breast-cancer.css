@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Miniver&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto+Slab:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto Slab", serif;
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    padding-bottom: 50px;
+}
+
+/* Top Section */
+.cancer-intro {
+    text-align: center;
+    padding: 50px;
+    background: #e91e63; /* Pink Theme for Breast Cancer Awareness */
+    color: white;
+}
+
+.menu a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+/* Form Section */
+.input-form {
+    text-align: center;
+    padding: 40px;
+    background: white;
+    margin: 20px auto;
+    width: 50%;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-form h2 {
+    color: #e91e63;
+}
+
+.input-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-form label {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.input-form input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 100%;
+}
+
+/* Button Styling */
+.input-form button {
+    background: #e91e63;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.input-form button:hover {
+    background: #c2185b;
+}
+
+/* Hover effect for input fields */
+input[type="text"],
+input[type="number"] {
+    transition: all 0.3s ease-in-out;
+    border: 2px solid #ccc;
+    padding: 10px;
+}
+
+input[type="text"]:hover,
+input[type="number"]:hover {
+    border-color: #e91e63;
+    background-color: #fce4ec;
+}
+
+/* Prediction Result Section */
+.prediction-result {
+    text-align: center;
+    margin-top: 50px;
+    padding: 25px;
+    margin-bottom: 30px;
+    background: #ffffff;
+    width: 50%;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    transition: 0.3s ease-in-out;
+}
+
+.prediction-result h2 {
+    color: #e91e63;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* Hover effect for Predict button */
+button {
+    background-color: #e91e63;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #ff4081;
+    transform: scale(1.05); /* Slightly enlarges the button */
+}
+
+/* Styling for Prediction Output */
+#result {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    display: inline-block;
+    width: 80%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
+}
+
+/* Hover Effect for the Result Box */
+.prediction-result:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+#result:hover {
+    background: #f8bbd0;
+    color: #c2185b;
+}

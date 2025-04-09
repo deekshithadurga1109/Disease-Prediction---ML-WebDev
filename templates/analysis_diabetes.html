@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/analysis-diabetes.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <section class="analysis-intro">
+        <div class="menu">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('analysis') }}">Back to Analysis</a>
+        </div>
+        <br>
+        <h1>DIABETES PREDICTION ANALYSIS</h1>
+        <p>Detailed insights and statistics for Diabetes predictions.</p>
+    </section>
+
+    <!-- Summary -->
+    <section class="summary">
+        <h2>Diabetes Prediction Summary</h2>
+        <p>Total Predictions: <span id="total-predictions">Loading...</span></p>
+        <p>Positive Cases: <span id="positive-cases">Loading...</span></p>
+    </section>
+
+    <!-- Chart Section -->
+    <section class="charts">
+        <h2>Diabetes Statistics</h2>
+        <canvas id="diabetesChart"></canvas>
+    </section>
+
+    <!-- Recent Predictions Table -->
+    <section class="recent-predictions">
+        <h2>Recent Predictions</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Patient ID</th>
+                    <th>Prediction</th>
+                </tr>
+            </thead>
+            <tbody id="prediction-table">
+                <tr><td colspan="3">No data available</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        // Sample Data
+        const diabetesData = [
+            { date: "2025-03-28", id: "D001", result: "Positive" },
+            { date: "2025-03-27", id: "D002", result: "Negative" },
+            { date: "2025-03-26", id: "D003", result: "Positive" }
+        ];
+
+        // Update Summary
+        document.getElementById("total-predictions").innerText = diabetesData.length;
+        document.getElementById("positive-cases").innerText = diabetesData.filter(p => p.result === "Positive").length;
+
+        // Update Table
+        const tableBody = document.getElementById("prediction-table");
+        tableBody.innerHTML = diabetesData.map(p => `
+            <tr>
+                <td>${p.date}</td>
+                <td>${p.id}</td>
+                <td>${p.result}</td>
+            </tr>
+        `).join("");
+
+        // Generate Chart
+        const ctx = document.getElementById("diabetesChart").getContext("2d");
+        new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: ["Positive Cases", "Negative Cases"],
+                datasets: [{
+                    label: "Diabetes Predictions",
+                    data: [
+                        diabetesData.filter(p => p.result === "Positive").length,
+                        diabetesData.filter(p => p.result === "Negative").length
+                    ],
+                    backgroundColor: ["#FF6384", "#36A2EB"]
+                }]
+            }
+        });
+    </script>
+</body>
+</html>
